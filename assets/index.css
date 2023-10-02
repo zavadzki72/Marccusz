@@ -1,0 +1,836 @@
+:root {
+    --purple: #986DFF;
+    --gray: #9CA3AF;
+    --white: #ffffff;
+    --ice-white: #D9D9D9;
+    --black: #111;
+    --medium-black: #151515;
+    --ligth-black: #1F1F1F;
+    --green: #A6FB98;
+    --red: #E51D37;
+    --blue: #00a3ff;
+}
+
+* {
+    font-family: 'Archivo', sans-serif;
+    color: var(--white);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition-duration: 100ms;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+body {
+    background-color: var(--black);
+}
+
+@media screen and (max-width: 992px){
+    body {
+        overflow-x: hidden;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+    background: var(--black); 
+}
+   
+::selection {
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+/* --- NAV --- */
+
+header {
+    padding: 0px 50px;
+    background: var(--black);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid #101013;
+    z-index: 999;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 992px){
+    header {
+        padding: 0px 24px;
+    }
+}
+
+.nav-div {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-div > nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100px;
+    padding: 0px 8px;
+}
+
+.nav-div > nav > img {
+    cursor: pointer;
+}
+
+.nav-div > nav > ul {
+    display: flex;
+}
+
+.nav-div > nav > ul > li {
+    margin-left: 3rem;
+}
+
+.nav-div > nav > ul > li > a{
+    color: var(--gray);
+    position: relative;
+    font-size: 1.2rem;
+}
+
+.nav-div > nav > ul > li > a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -7px;
+    left: 0;
+    background: linear-gradient(270deg, #986dff 0%, #17161d 100%);
+    transform-origin: bottom right;
+    transition: transform .5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.nav-div > nav > ul > li > a:hover {
+    color: var(--white);
+}
+
+.nav-div > nav > ul > li > a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width: 992px){
+    .mobile-menu {
+        display: block;
+    }
+}
+
+.mobile-menu div {
+    width: 32px;
+    height: 1px;
+    background-color: #fff;
+    margin: 8px;
+    transition: .4s;
+}
+
+@media screen and (max-width: 992px)
+{
+    .nav-div > nav > ul {
+        text-align: center;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 999;
+        background-color: #151515;
+        flex-direction: column;
+        padding-top: 96px;
+        visibility: hidden;
+    }
+}
+
+/* --- END NAV --- */
+
+/* --- BANNER HOME --- */
+
+.s-home {
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+@media screen and (max-width: 992px){
+    .s-home {
+        padding: 100px 20px 0px 20px;
+    }
+}
+
+
+.home-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16rem 8rem;
+}
+
+
+.home-banner > div > ul {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.home-banner > div > ul > li {
+    padding: 1rem 0rem;
+}
+
+.home-banner > div > ul > li.saudacoes {
+    font-size: 1.1rem;
+}
+
+.home-banner > div > ul > li.nome {
+    font-size: 3rem;
+    line-break: auto;
+    max-width: 100px;
+}
+
+.home-banner > div > ul > li.descricao {
+    padding: 0rem 0rem 2rem 0rem;
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.home-banner > div > ul > li.redes-sociais > a {
+    padding: 0rem .5rem 0rem 0rem;
+}
+
+.home-banner > div > ul > li.redes-sociais > a > svg {
+    fill: var(--gray);
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.home-banner > div > ul > li.redes-sociais > a > svg:hover {
+    fill: var(--white);
+}
+
+.home-banner > div > img {
+    margin-bottom: 5rem;
+}
+
+/* --- END BANNER HOME --- */
+
+/* --- END PERFIL --- */
+
+.s-perfil {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 8rem;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--medium-black);
+    border: 2px solid var(--ligth-black);
+    padding: 2rem;
+}
+
+.perfil > div.perfil-content {
+    background-color: var(--medium-black);
+    margin-left: 4rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.perfil > div > h4 {
+    background-color: var(--medium-black);
+    color: var(--purple);
+    font-weight: 500;
+}
+
+.perfil > div > h2 {
+    background-color: var(--medium-black);
+    font-weight: 500;
+    padding: 1rem 0rem;
+    font-size: 2.5rem;
+}
+
+.perfil > div > h3 {
+    background-color: var(--medium-black);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.perfil > div > p {
+    background-color: var(--medium-black);
+    color: var(--gray);
+    padding: 2rem 0rem;
+    line-height: 160%;
+    margin: 2rem 0rem 1rem 0rem;
+}
+
+.perfil > div > nav {
+    width: 100%;
+    background-color: var(--medium-black);
+}
+
+.perfil > div > nav > ul {
+    background-color: var(--medium-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.perfil > div > img {
+    border: 1px solid var(--gray);
+}
+
+.perfil > div > nav > ul > a {
+    background-color: var(--black);
+    padding: 1rem;
+    margin: 0rem 1rem 0rem 0rem;
+    border: 1px solid var(--ligth-black);
+    border-radius: 1.5rem;
+}
+
+.perfil > div > nav > ul > a > svg {
+    fill: var(--purple);
+}
+
+
+/* --- END PERFIL --- */
+
+/* --- CARREIRA --- */
+
+.s-carreira {
+    background-color: var(--medium-black);
+    color: var(--white);
+    padding: 10rem 3rem;
+}
+
+.carreira {
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+.carreira > h2 {
+    background-color: var(--medium-black);
+    padding-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.carreira-content {
+    background-color: var(--medium-black);
+    margin-top: 2rem;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.carreira-content > .empresas {
+    background-color: var(--medium-black);
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.carreira-content > .empresas > div {
+    background-color: var(--medium-black);
+    padding: 1.5rem 1.3rem;
+    text-align: left;
+    background-color: var(--black);
+}
+
+.carreira-content > .empresas > div:hover {
+    cursor: pointer;
+    background-color: var(--ligth-black);
+}
+
+.carreira-content > .empresas > div > h3 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.carreira-content > .empresas > .active {
+    border-left: 4px solid var(--purple);
+}
+
+.carreira-content > .empresas > .active:hover {
+    background-color: var(--black);
+    cursor: default;
+}
+
+.carreira-content > .descricao {
+    background-color: var(--medium-black);
+    width: 75%;
+}
+
+.carreira-content > .descricao > div {
+    background-color: var(--medium-black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carreira-content > .descricao > div > h4 {
+    background-color: var(--medium-black);
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.carreira-content > .descricao > div > p {
+    background-color: var(--medium-black);
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.carreira-content > .descricao > h5 {
+    background-color: var(--medium-black);
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 2rem 0rem;
+    color: var(--purple);
+}
+
+.carreira-content > .descricao > p {
+    background-color: var(--medium-black);
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 160%;
+    color: var(--gray);
+}
+
+/* --- END CARREIRA --- */
+
+/* --- PORTIFOLIO --- */
+
+.s-portifolio{
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.portifolio > h2 {
+    padding-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.portifolio-content {
+    margin: 2rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.portifolio-content > article {
+    padding: 2rem;
+    margin: 8px;
+    flex-basis: calc(33% - 20px);
+    flex-grow: 1;
+    background-color: var(--medium-black);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.portifolio-content > article.green {
+    border: 1px solid var(--green);
+}
+
+.portifolio-content > article.red {
+    border: 1px solid var(--red);
+}
+
+.portifolio-content > article.blue {
+    border: 1px solid var(--blue);
+}
+
+.portifolio-content > article.breve:hover {
+    border: 1px solid var(--purple);
+    transition: 1s all ease;
+}
+
+.portifolio-content > article > h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.portifolio-content > article > p {
+    line-height: 1.5rem;
+    margin: 1.5rem 0rem;
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+.portifolio-content > article > a {
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.portifolio-content > article > a::after {
+    content: "";
+    position: absolute;
+    width: 25%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -7px;
+    left: 0;
+    transform-origin: bottom right;
+    transition: transform .5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.portifolio-content > article > a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.portifolio-content > article.red > a {
+    color: var(--red);
+    opacity: .8;
+}
+
+.portifolio-content > article.red > a::after {
+    background: linear-gradient(270deg, var(--red) 0%, var(--black) 100%);
+}
+
+.portifolio-content > article.blue > a {
+    color: var(--blue);
+    opacity: .8;
+}
+
+.portifolio-content > article.blue > a::after {
+    background: linear-gradient(270deg, var(--blue) 0%, var(--black) 100%);
+}
+
+.portifolio-content > article.green > a {
+    color: var(--green);
+    opacity: .8;
+}
+
+.portifolio-content > article.green > a::after {
+    background: linear-gradient(270deg, var(--green) 0%, var(--black) 100%);
+}
+
+.portifolio > a {
+    color: var(--purple);
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.portifolio > a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -7px;
+    left: 0;
+    transform-origin: bottom right;
+    transition: transform .5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.portifolio > a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.portifolio > a::after {
+    background: linear-gradient(270deg, var(--purple) 0%, var(--black) 100%);
+}
+
+/* --- END PORTIFOLIO --- */
+
+/* --- SKILLS --- */
+
+.s-skills {
+    background-color: var(--medium-black);
+    color: var(--white);
+    padding: 6rem 3rem;
+}
+
+.skills {
+    max-width: 1200px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px;
+}
+
+.skills > article {
+    min-height: 25rem;
+    width: 50%;
+}
+
+.skills > article > h2 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.skills > article > p {
+    max-width: 32rem;
+    line-height: 1.5rem;
+    color: gray;
+    font-size: 1.1rem;
+}
+
+.skills > div.cards {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skills > div.cards > article {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 20%;
+    flex-grow: 1;
+    height: 8rem;
+    background-color: var(--black);
+    position: relative;
+    border: 1px solid var(--ligth-black);
+    border-radius: 4px;
+}
+
+.skills > div.cards > article:hover {
+    border: 1px solid var(--purple);
+    transition: 1s all ease;
+}
+
+.skills > div.cards > article > svg {
+    height: 60px;
+    width: 60px;
+    display: block;
+}
+
+.skills > div.cards > article:not(:hover) > svg > path {
+    fill: var(--purple);
+}
+
+.skills > div.cards > article:not(:hover) > svg > g {
+    fill: var(--purple);
+}
+
+
+/* --- END SKILLS --- */
+
+/* --- COMENTARIOS --- */
+
+carousel {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+carousel > page {
+    position: absolute;
+    width: 100%;
+    transition: transform 1s;
+    transform: scale(0);
+}
+
+carousel > #page1-checkbox:checked ~ #page1 {
+    transform: scale(1);
+}
+
+carousel > #page2-checkbox:checked ~ #page2 {
+    transform: scale(1);
+}
+
+page > label {
+    color: var(--purple);
+    width: 100%;
+    cursor: pointer;
+    transition: .8s ease;
+}
+
+page > label:hover {
+    transform: scale(1.2);
+}
+
+.s-comentarios{
+    position: relative;
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 6rem 2rem;
+    text-align: center;
+    height: 50rem;
+}
+
+.comentarios {
+    position: relative;
+}
+
+.comentarios-content {
+    position: relative;
+}
+
+.comentarios > h2 {
+    padding-bottom: 5rem;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.comentarios-content > carousel > page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.comentarios-content > carousel > page > article {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: left;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25%;
+    flex-grow: 1;
+    height: 25rem;
+    background-color: var(--medium-black);
+    position: relative;
+    border: 1px solid var(--purple);
+    border-radius: 1.5rem;
+    transition: transform .5s;
+}
+
+.comentarios-content > carousel > page > article:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.comentarios-content > carousel > page > article > div {
+    padding-left: 1rem;
+}
+
+.comentarios-content > carousel > page > article > div > svg {
+    display: block;
+    fill: var(--purple);
+    margin-left: .2rem;
+    margin-top: 2rem;
+}
+
+.comentarios-content > carousel > page > article > p {
+    line-height: 1rem;
+    color: gray;
+    font-size: 1rem;
+    font-weight: 100;
+    font-style: italic;
+    text-align: left;
+    padding: 0rem 2rem;
+}
+
+.comentarios-content > carousel > page > article:hover > p {
+    color: var(--white);
+}
+
+.comentarios-content > carousel > page > article > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.comentarios-content > carousel > page > article > div > img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 5rem;
+    margin-right: .7rem;
+    border: 1px solid var(--ligth-black);
+    margin-bottom: 2rem;
+}
+
+.comentarios-content > carousel > page > article > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.comentarios-content > carousel > page > article > div > div > h4 {
+    font-weight: 400;
+}
+
+.comentarios-content > carousel > page > article > div > div > p {
+    font-weight: 100;
+    color: var(--purple);
+    font-size: .8rem;
+}
+
+/* --- END COMENTARIOS --- */
+
+/* --- FOOTER --- */
+
+footer {
+    background-color: var(--ligth-black);
+}
+
+.footer {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer > p {
+    font-size: 1.1;
+}
+
+.footer > p > a {
+    color: var(--purple);
+}
+
+.footer > p > a:hover {
+    color: var(--blue);
+}
+
+.footer > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer > div > img {
+    cursor: pointer;
+}
+
+/* --- END FOOTER --- */
+
