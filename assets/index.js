@@ -1,12 +1,39 @@
 $(document).ready(function () {
+    onScroll();
     onClickNavMenu();
     onClickCompanyCarreer();
     onHoverSkillCard();
 });
 
-//#region [Nav Mobile]
+//#region [Scroll Animation]
 
-//#region [Carreira]
+function onScroll(){
+    var sections = document.querySelectorAll('.section');
+    var windowHalfSize = window.innerHeight * 0.6
+
+    const animateScroll = () => {
+        sections.forEach(item => {
+            var sectionTop = item.getBoundingClientRect().top;
+            var isSectionVisible = (sectionTop - windowHalfSize) < 0;
+      
+            if (isSectionVisible) {
+              item.classList.add('active')
+            } else {
+              item.classList.remove('active')
+            }
+      
+          }
+    )
+    
+    }
+    
+    animateScroll();
+    window.addEventListener('scroll', animateScroll)
+}
+
+//#endregion
+
+//#region [Nav Mobile]
 
 function onClickNavMenu(){
     $('.mobile-menu').on('click', function() {
@@ -31,6 +58,8 @@ function onClickNavMenu(){
 }
 
 //#endregion
+
+//#region [Carreira]
 
 function onClickCompanyCarreer(){
     $('.company-carreer').on('click', function(event) {
