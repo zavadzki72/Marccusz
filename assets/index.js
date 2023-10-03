@@ -1,9 +1,36 @@
 $(document).ready(function () {
+    onClickNavMenu();
     onClickCompanyCarreer();
     onHoverSkillCard();
 });
 
+//#region [Nav Mobile]
+
 //#region [Carreira]
+
+function onClickNavMenu(){
+    $('.mobile-menu').on('click', function() {
+        if($('.mobile-menu').hasClass('active')){
+            $('.mobile-menu').removeClass('active');
+            $('.nav-list').removeClass('active');
+        } else {
+            $('.mobile-menu').addClass('active');
+            $('.nav-list').addClass('active');
+        }
+    });
+
+    $('.nav-div > nav > ul > li').on('click', function() {
+        if($('.mobile-menu').hasClass('active')){
+            $('.mobile-menu').removeClass('active');
+            $('.nav-list').removeClass('active');
+        } else {
+            $('.mobile-menu').addClass('active');
+            $('.nav-list').addClass('active');
+        }
+    });
+}
+
+//#endregion
 
 function onClickCompanyCarreer(){
     $('.company-carreer').on('click', function(event) {
