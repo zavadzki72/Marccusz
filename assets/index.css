@@ -30,7 +30,7 @@ li {
     list-style-type: none;
 }
 
-button, input[type="submit"], input[type="reset"] {
+button, select, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
 	border: none;
@@ -83,6 +83,108 @@ body {
     transform: translateX(0);
     opacity: 1;
 }
+
+/* #region [LANG] */
+
+.translate_wrapper{
+    font-size: 16px;
+    background: var(--medium-black);
+    border-radius: 4px;
+    margin-right: 1rem;
+}
+  
+.current_lang{
+    cursor: pointer;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+  
+.lang{
+    padding: 10px 15px;
+}
+  
+.lang.selected{
+    display: none;
+}
+  
+.lang svg, 
+.lang span.lang-txt{
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+  
+.lang span.lang-txt{
+    position: relative;
+    top: -1px;
+    font-weight: 700;
+    color: var(--gray);
+}
+  
+.lang span.flag{
+    width: 20px;
+    height: 20px;
+    margin-left: 0;
+}
+  
+.lang span.lang-txt span{
+    color:#999;
+    font-weight:400;
+}
+  
+.lang span.fa{
+    font-size: 12px;
+    position: relative;
+    margin-left: 3px;
+}
+  
+.more_lang{
+    transform: translateY(-20px);
+    opacity: 0;
+    cursor: pointer;
+    display: none;
+    -webkit-transition: all .3s cubic-bezier(.25, 1.15, .35, 1.15);
+    -moz-transition: all .3s cubic-bezier(.25, 1.15, .35, 1.15);
+    -o-transition: all .3s cubic-bezier(.25, 1.15, .35, 1.15);
+    -ms-transition: all .3s cubic-bezier(.25, 1.15, .35, 1.15);
+    transition: all .3s cubic-bezier(.25, 1.15, .35, 1.15);
+}
+  
+.translate_wrapper.active .more_lang{
+    display:block; 
+}
+  
+.more_lang.active{
+    opacity:1;
+    transform:translateY(-0px);
+}
+  
+.more_lang .lang:hover{
+    background: var(--purple);
+    color: var(--white);
+}
+  
+.more_lang .lang:hover span{
+    color: var(--white);
+}
+  
+.translate_wrapper:hover,
+.translate_wrapper.active,
+.content a:hover{
+    box-shadow:rgba(0,0,0,0.2) 0 5px 15px;  
+    -webkit-transition: all 0.3s cubic-bezier(0,.99,.44,.99);
+    -moz-transition: all 0.3s cubic-bezier(0,.99,.44,.99);
+    -o-transition: all 0.3s cubic-bezier(0,.99,.44,.99);
+    -ms-transition: all 0.3s cubic-bezier(0,.99,.44,.99);
+    transition: all 0.3s cubic-bezier(0,.99,.44,.99);
+}
+  
+.translate_wrapper.active .lang{
+    border-bottom:1px solid var(--ligth-black);
+}
+
+
+/* #endregion */
 
 /* #region [DARK THEME] */
 
@@ -417,6 +519,12 @@ header {
 .nav-div {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.nav-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media screen and (max-width: 992px){
@@ -1458,6 +1566,18 @@ body.light-theme > header > .nav-div > nav > img{
 
 body.light-theme > header > .nav-div > nav > ul > li > a:hover {
     color: var(--purple);
+}
+
+body.light-theme > header > .nav-div > nav > .nav-btns > .translate_wrapper {
+    background: var(--medium-white);
+}
+
+body.light-theme > header > .nav-div > nav > .nav-btns > .translate_wrapper > .more_lang .lang span.lang-txt {
+    color: var(--medium-black);
+}
+
+body.light-theme > header > .nav-div > nav > .nav-btns > .translate_wrapper.active > .more_lang .lang {
+    border-bottom:1px solid var(--ice-white);
 }
 
 body.light-theme > main > section#s-home > div.home-banner > div > ul > li.descricao {

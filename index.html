@@ -20,6 +20,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
         <link rel="manifest" href="/assets/favicon/site.webmanifest">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css"/>
         <link rel="stylesheet" href="assets/index.css">
 
         <!-- FONTS -->
@@ -41,25 +42,45 @@
                     </div>
                     <ul class="nav-list">
                         <li>
-                            <a href="#s-home">Home</a>
+                            <a href="#s-home">:home</a>
                         </li>
                         <li>
-                            <a href="#s-perfil">Perfil</a>
+                            <a href="#s-perfil">:perfil</a>
                         </li>
                         <li>
-                            <a href="#s-carreira">Carreira</a>
+                            <a href="#s-carreira">:carreira</a>
                         </li>
                         <li>
-                            <a href="#s-portifolio">Portfolio</a>
+                            <a href="#s-portifolio">:portfolio</a>
                         </li>
                         <li>
-                            <a href="#s-skills">Skills</a>
+                            <a href="#s-skills">:skills</a>
                         </li>
                         <li id="li-comentarios">
-                            <a href="#s-comentarios">Comentarios</a>
+                            <a href="#s-comentarios">:comentarios</a>
                         </li>
                     </ul>
                     <div class="nav-btns">
+                        <div class="translate_wrapper">
+                            <div class="current_lang">
+                                <div class="lang">
+                                    <span class="flag fi fi-br"></span>
+                                    <span class="lang-txt">PT</span> 
+                                    <span class="fa fa-chevron-down chevron"></span>
+                                </div>
+                            </div>
+                            <div class="more_lang">
+                                <div class="lang" data-value="pt">
+                                    <span class="flag fi fi-br"></span>
+                                    <span class="lang-txt">:portugues<span> (BR)</span></span>      
+                                </div> 
+                                <div class="lang" data-value='en'>
+                                    <span class="flag fi fi-us"></span>
+                                    <span class="lang-txt">:ingles<span> (US)</span></span>      
+                                </div>
+
+                            </div>
+                        </div>
                         <button title="Trocar entre Claro &amp; Escuro" aria-label="dark" aria-live="polite" class="theme-toggle" id="theme-toggle">
                             <svg viewBox="0 0 24 24" aria-hidden="true" class="sun-and-moon" height="24" width="24"><mask class="moon" id="moon-mask"><rect fill="white" height="100%" width="100%" x="0" y="0"></rect><circle cx="24" cy="10" fill="black" r="6"></circle></mask><circle class="sun" cx="12" cy="12" fill="currentColor" mask="url(#moon-mask)" r="6"></circle><g class="sun-beams" stroke="currentColor"><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></g></svg>
                         </button>
@@ -73,7 +94,7 @@
                     <div>
                         <ul>
                             <li class="saudacoes">
-                                👋 Saudações!
+                                :saudacoes
                             </li>
                             <li class="nome">
                                 Marccus Zavadzki
@@ -111,12 +132,11 @@
                         <img src="assets/images/minha_foto.png" alt="Foto pessoal" width="400" height="400">
                     </div>
                     <div class="perfil-content">
-                        <h4>Sobre mim</h4>
+                        <h4>:about-me</h4>
                         <h2>Marccus Zavadzki</h2>
                         <h3>Tech lead | .NET Developer</h3>
                         <p>
-                            Olá! Meu nome é Marccus mas pode me chamar de 'Marcão', trabalho como desenvolvedor desde 2018.
-                            Amo Churrasco, música, futebol e esportes em geral!!
+                            :about-me-description
                         </p>
                         <nav>
                             <ul>
@@ -140,7 +160,7 @@
                                         <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
                                     </svg>
                                 </a>
-                                <a title="Visualizar CV" href="assets/files/cv_pt.pdf" target="_blank">
+                                <a id="cv-btn" title="Visualizar CV" href="assets/files/cv_pt.pdf" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
                                     </svg>
@@ -152,7 +172,7 @@
             </section>
             <section class="s-carreira section" id="s-carreira">
                 <div class="carreira">
-                    <h2>Carreira</h2>
+                    <h2>:carreira</h2>
                     <div class="carreira-content">
                         <div class="empresas">
                             <div id="ambev" class="company-carreer active">
@@ -171,11 +191,11 @@
                         <div class="descricao">
                             <div>
                                 <h4 id="titulo-carreira" class="titulo">Tech Lead</h4>
-                                <p id="data-carreira" class="data">09/2021 - Atual</p>
+                                <p id="data-carreira" class="data">09/2021 - :atual</p>
                             </div>
                             <h5 id="nome-empresa-carreira" class="nome-empresa">Ambev Tech</h5>
                             <p id="conteudo-descricao-carreira" class="conteudo-descricao">
-                                Tech lead da equipe que cuida da aplicação de gerenciamento de insumos nas fabricas globais da ambev.
+                                :carreira-description
                             </p>
                         </div>
                     </div>
@@ -183,45 +203,45 @@
             </section>
             <section class="s-portifolio section" id="s-portifolio">
                 <div class="portifolio">
-                    <h2>Portfolio</h2>
+                    <h2>:portfolio</h2>
                     <div class="portifolio-content">
                         <article class="card red">
                             <h3>Palavra</h3>
-                            <p>Um jogo que consite em acertar a palavra do dia.</p>
+                            <p>:portfolio-palavra-description</p>
                             <a href="https://palavra.marccusz.com" target="_blank">Acessar</a>
                         </article>
                         <article class="card blue">
                             <h3>File Divider</h3>
-                            <p>Site para quebrar arquivos de textos grandes m arquivos menores.</p>
+                            <p>:portfolio-fd-description</p>
                             <a href="https://fd.marccusz.com" target="_blank">Acessar</a>
                         </article>
                         <article class="card green">
                             <h3>Embaixadinha</h3>
-                            <p>Jogo de quem faz mais embaixadinhas.</p>
+                            <p>:portfolio-embaixadinha-description</p>
                             <a href="https://embaixadinha.marccusz.com" target="_blank">Acessar</a>
                         </article>
                         <article class="card breve">
-                            <h3>Em breve</h3>
-                            <p>Em breve mais projetos pessoais estarão aqui.</p>
+                            <h3>:portfolio-breve-title</h3>
+                            <p>:portfolio-breve-description</p>
                         </article>
                         <article class="card breve">
-                            <h3>Em breve</h3>
-                            <p>Em breve mais projetos pessoais estarão aqui.</p>
+                            <h3>:portfolio-breve-title-two</h3>
+                            <p>:portfolio-breve-description-two</p>
                         </article>
                         <article class="card breve">
-                            <h3>Em breve</h3>
-                            <p>Em breve mais projetos pessoais estarão aqui.</p>
+                            <h3>:portfolio-breve-title-trhee</h3>
+                            <p>:portfolio-breve-description-trhee</p>
                         </article>
                     </div>
                     <a href="https://github.com/zavadzki72" target="_blank">
-                        Ver mais em GitHub
+                        :ver-mais :em GitHub
                     </a>
                 </div>
             </section>
             <section class="s-skills section" id="s-skills">
                 <div class="skills">
                     <article>
-                        <h2>Skills</h2>
+                        <h2>:skills</h2>
                         <p id="skill-text">...</p>
                     </article>
                     <div id="skill-cards" class="cards">
@@ -290,7 +310,7 @@
             </section>
             <section class="s-comentarios section" id="s-comentarios">
                 <div class="comentarios">
-                    <h2>Comentarios</h2>
+                    <h2>:comentarios</h2>
                     <div class="comentarios-content">
                         <carousel>
                             <input type="radio" id="page1-checkbox" checked name="pages" hidden/>
@@ -304,10 +324,7 @@
                                         </svg>
                                     </div>
                                     <p>
-                                        Conheci o Marccus em um curso para as turmas do ensino médio do IFPR sobre programação em C# que tive a oportunidade de ministrar. Já nas primeiras turmas ele começou a se destacar, e não demorou muito para que a empresa em que eu trabalhava na época o contratasse como estagiário.
-                                        Desde então, o Marccus tem evoluído demais, o que não me surpreende em estar na posição que está hoje (com muito destaque).
-                                        É um profissional comprometido e dedicado, sempre procurando aprender mais e disposto a colaborar. Trabalha em conjunto com o time e não mede esforços em tentar fazer sempre o melhor possível nos desafios do dia a dia.
-                                        É um prazer tê-lo no time. Ele com certeza faz a diferença!!
+                                        :comentarios-marty
                                     </p>
                                     <div>
                                         <img src="assets/images/marty.jpg" alt="Foto pessoal" />
@@ -325,8 +342,7 @@
                                         </svg>
                                     </div>
                                     <p>
-                                        Conheci o Marccus quando iniciei o curso de TADS no IFPR e na época ele já tinha 4 anos de experiência profissional na área.
-                                        Ele é uma pessoa muito dedicada e atenciosa, sempre que possível me orientava e me ajudava em minhas dúvidas. Fiquei sabendo tempos depois, que ele fora um dos responsáveis por desenvolver e implementar um programa na empresa que estagiei.
+                                        :comentarios-navarro
                                     </p>
                                     <div>
                                         <img src="assets/images/navarro.jpg" alt="Foto pessoal" />
@@ -336,7 +352,7 @@
                                         </div>
                                     </div>
                                 </article>
-                                <label for="page2-checkbox">Ver mais</label>
+                                <label for="page2-checkbox">:comentarios-ver-mais</label>
                             </page>
                             <page id="page2">
                                 <article>
@@ -347,7 +363,7 @@
                                         </svg>
                                     </div>
                                     <p>
-                                        Trabalhei com o Marccus por volta de 1 ano e posso garantir que ele é um profissional de ponta, especialista em .net. Sempre proativo, disposto a ajudar e a disseminar seu conhecimento para toda a equipe. 
+                                        :comentarios-leo
                                     </p>
                                     <div>
                                         <img src="assets/images/leo.jpg" alt="Foto pessoal" />
@@ -365,7 +381,7 @@
                                         </svg>
                                     </div>
                                     <p>
-                                        Excelente profissional, dedicado, empenhado, sempre buscando ser melhor a cada dia.
+                                        :comentarios-lisboa
                                     </p>
                                     <div>
                                         <img src="assets/images/Lisboa.jpg" alt="Foto pessoal" />
@@ -383,7 +399,7 @@
                                         </svg>
                                     </div>
                                     <p>
-                                        Conheço Marccus pelo menos uns 6 anos, estudamos junto no técnico em informática e também no curso de TADS. Sempre notei sua capacidade de desenvolvimento na área e seu raciocínio lógico, sempre fui uma grande insparação para a construção da minha carreira. 
+                                        :comentarios-cardoso
                                     </p>
                                     <div>
                                         <img src="assets/images/cardoso.jpg" alt="Foto pessoal" />
@@ -393,7 +409,7 @@
                                         </div>
                                     </div>
                                 </article>
-                                <label for="page1-checkbox">Voltar</label>
+                                <label for="page1-checkbox">:voltar</label>
                             </page>
                         </carousel>
                     </div>
@@ -403,11 +419,11 @@
         <footer>
             <div class="footer">
                 <p>
-                    © 2023 <a href="#s-home">marccusz.com</a>. Todos os direitos reservados.
+                    © 2023 <a href="#s-home">marccusz.com</a>. :footer-diretos
                 </p>
                 <div>
                     <p>
-                        Feito por
+                        :footer-feito-por
                     </p>
                     <img src="assets/images/logo.png" width="70" height="50" alt="Logo" />
                 </div>
@@ -416,6 +432,9 @@
 
         <!-- SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        
+        <script src="assets/language-selector.js"></script>
+        <script src="assets/locale.js"></script>
 
         <script src="assets/index.js"></script>
     </body>
