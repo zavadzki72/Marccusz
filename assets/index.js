@@ -1,5 +1,6 @@
 $(document).ready(function () {
     onScroll();
+    onChangeTheme();
     onClickNavMenu();
     onClickCompanyCarreer();
     onHoverSkillCard();
@@ -29,6 +30,47 @@ function onScroll(){
     
     animateScroll();
     window.addEventListener('scroll', animateScroll)
+}
+
+//#endregion
+
+//#region [Ligth theme]
+
+function onChangeTheme(){
+    var storageKey = "theme-preference";
+    var theme = getColorPreference(storageKey);
+
+    setPreference(storageKey, theme);
+
+    $('#theme-toggle').on('click', function() {
+        theme = "light" === theme ? "dark" : "light";
+        setPreference(storageKey, theme);
+    });
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (({matches: e})=>{
+        theme = e ? "dark" : "light";
+        setPreference(storageKey, theme);
+    }));
+}
+
+function getColorPreference(storageKey){
+    return localStorage.getItem(storageKey) ? localStorage.getItem(storageKey) : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function setPreference(storageKey, theme){
+    localStorage.setItem(storageKey, theme);
+    reflectPreference(theme);
+}
+
+function reflectPreference(theme){
+    document.firstElementChild.setAttribute("data-theme", theme);
+    document.querySelector("#theme-toggle")?.setAttribute("aria-label", theme);
+
+    if(theme === "dark"){
+        $('body').removeClass('light-theme');
+    }else{
+        $('body').addClass('light-theme');
+    }
 }
 
 //#endregion

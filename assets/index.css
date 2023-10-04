@@ -3,6 +3,7 @@
     --gray: #9CA3AF;
     --white: #ffffff;
     --ice-white: #D9D9D9;
+    --medium-white: #f7f7f7;
     --black: #111;
     --medium-black: #151515;
     --ligth-black: #1F1F1F;
@@ -13,7 +14,6 @@
 
 * {
     font-family: 'Archivo', sans-serif;
-    color: var(--white);
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -30,8 +30,19 @@ li {
     list-style-type: none;
 }
 
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 body {
     background-color: var(--black);
+    color: var(--white);
 }
 
 @media screen and (max-width: 992px){
@@ -73,6 +84,165 @@ body {
     opacity: 1;
 }
 
+/* #region [DARK THEME] */
+
+@import"https://unpkg.com/open-props/easings.min.css";.sun-and-moon>:is(.moon,.sun,.sun-beams) {
+    transform-origin: center center
+}
+
+.sun-and-moon>:is(.moon,.sun) {
+    fill: var(--icon-fill)
+}
+
+.theme-toggle:is(:hover,:focus-visible)>.sun-and-moon>:is(.moon,.sun) {
+    fill: var(--icon-fill-hover)
+}
+
+.sun-and-moon>.sun-beams {
+    stroke: var(--icon-fill);
+    stroke-width: 2px
+}
+
+.theme-toggle:is(:hover,:focus-visible) .sun-and-moon>.sun-beams {
+    stroke: var(--icon-fill-hover)
+}
+
+[data-theme=dark] .sun-and-moon>.sun {
+    transform: scale(1.75)
+}
+
+[data-theme=dark] .sun-and-moon>.sun-beams {
+    opacity: 0
+}
+
+[data-theme=dark] .sun-and-moon>.moon>circle {
+    transform: translate(-7px)
+}
+
+@supports (cx: 1) {
+    [data-theme=dark] .sun-and-moon>.moon>circle {
+        transform: translate(0);
+        cx: 17
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sun-and-moon>.sun {
+        transition: transform .5s var(--ease-elastic-3)
+    }
+
+    .sun-and-moon>.sun-beams {
+        transition: transform .5s var(--ease-elastic-4),opacity .5s var(--ease-3)
+    }
+
+    .sun-and-moon .moon>circle {
+        transition: transform .25s var(--ease-out-5)
+    }
+
+    @supports (cx: 1) {
+        .sun-and-moon .moon>circle {
+            transition: cx .25s var(--ease-out-5)
+        }
+    }
+
+    [data-theme=dark] .sun-and-moon>.sun {
+        transform: scale(1.75);
+        transition-timing-function: var(--ease-3);
+        transition-duration: .25s
+    }
+
+    [data-theme=dark] .sun-and-moon>.sun-beams {
+        transform: rotate(-25deg);
+        transition-duration: .15s
+    }
+
+    [data-theme=dark] .sun-and-moon>.moon>circle {
+        transition-delay: .25s;
+        transition-duration: .5s
+    }
+}
+
+.theme-toggle {
+    --size: 2rem;
+    --icon-fill: hsl(210 10% 30%);
+    --icon-fill-hover: hsl(210 10% 15%);
+    background: none;
+    border: none;
+    padding: 0;
+    inline-size: var(--size);
+    block-size: var(--size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    outline-offset: 5px
+}
+
+.theme-toggle>svg {
+    inline-size: 100%;
+    block-size: 100%;
+    stroke-linecap: round
+}
+
+[data-theme=dark] .theme-toggle {
+    --icon-fill: hsl(210 10% 70%);
+    --icon-fill-hover: hsl(210 15% 90%)
+}
+
+@media (hover: none) {
+    .theme-toggle {
+        --size: 48px
+    }
+}
+
+html[data-theme=dark] {
+    color-scheme: dark
+}
+
+@supports not (color-scheme: dark) {
+    html[data-theme=dark] {
+        background: #111
+    }
+}
+
+@-webkit-keyframes octocat-wave {
+    0%,to {
+        transform: rotate(0)
+    }
+
+    20%,60% {
+        transform: rotate(-25deg)
+    }
+
+    40%,80% {
+        transform: rotate(10deg)
+    }
+}
+
+@keyframes octocat-wave {
+    0%,to {
+        transform: rotate(0)
+    }
+
+    20%,60% {
+        transform: rotate(-25deg)
+    }
+
+    40%,80% {
+        transform: rotate(10deg)
+    }
+}
+
+@media screen and (max-width: 992px){
+    .theme-toggle>svg {
+        inline-size: 50%;
+        block-size: 100%;
+        stroke-linecap: round
+    }
+}
+
+/* #endregion */
 
 /* #region [TOOTLIP] */
 
@@ -285,7 +455,7 @@ header {
     margin-left: 3rem;
 }
 
-.nav-div > nav > ul > li > a{
+.nav-div > nav > ul > li > a {
     color: var(--gray);
     position: relative;
     font-size: 1.2rem;
@@ -1262,3 +1432,203 @@ footer {
 
 /*#endregion*/
 
+/* #region [LIGTH THEME] */
+
+body.light-theme {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+body.light-theme > header {
+    background: var(--white);
+    border-bottom: 1px solid var(--ice-white);
+}
+
+body.light-theme > header > .nav-div > nav > ul > li > a {
+    color: var(--medium-black);
+}
+
+body.light-theme > header > .nav-div > nav > .mobile-menu div {
+    background-color: var(--black);
+}
+
+body.light-theme > header > .nav-div > nav > img{
+    content: url(images/logo_black.png);
+}
+
+body.light-theme > header > .nav-div > nav > ul > li > a:hover {
+    color: var(--purple);
+}
+
+body.light-theme > main > section#s-home > div.home-banner > div > ul > li.descricao {
+    color: var(--purple);
+}
+
+body.light-theme > main > section#s-home > div.home-banner > div > ul > li.redes-sociais > a > svg {
+    fill: var(--black);
+}
+
+body.light-theme > main > section#s-perfil > .perfil {
+    background-color: var(--medium-white);
+    border: 2px solid var(--ice-white);
+}
+
+body.light-theme > main > section#s-perfil > .perfil > div.perfil-content {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-perfil > .perfil > div > h4 {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-perfil > .perfil > div > h2 {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-perfil > .perfil > div > h3 {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-perfil > .perfil > div > p {
+    background-color: var(--medium-white);
+    color: var(--ligth-black);
+}
+
+body.light-theme > main > section#s-perfil > .perfil > div > nav > ul {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-perfil > .perfil > div > nav > ul > a {
+    background-color: var(--medium-white);
+    border: 1px solid var(--ice-white);
+}
+
+body.light-theme > main > section#s-perfil > .perfil > div > nav > ul > a > svg {
+    fill: var(--medium-black);
+}
+
+body.light-theme > main > section#s-carreira {
+    background-color: var(--medium-white);
+    color: var(--medium-black);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > h2 {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > div.carreira-content {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .empresas {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .empresas > div {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .empresas > div:hover,
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .empresas > div:active {
+    background-color: var(--ice-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .empresas > .active:hover,
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .empresas > .active:active {
+    background-color: var(--ice-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .descricao {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .descricao > div {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .descricao > div > h4 {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .descricao > div > p {
+    background-color: var(--medium-white);
+    color: var(--medium-black);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .descricao > h5 {
+    background-color: var(--medium-white);
+    color: var(--purple);
+}
+
+body.light-theme > main > section#s-carreira > div.carreira > .carreira-content > .descricao  > p {
+    background-color: var(--medium-white);
+    color: var(--medium-black);
+}
+
+body.light-theme > main > section#s-portifolio > .portifolio > .portifolio-content > article {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > main > section#s-portifolio > .portifolio > .portifolio-content > article.green > a {
+    color: #4dcc3a;
+    opacity: .8;
+}
+
+body.light-theme > main > section#s-portifolio > .portifolio > .portifolio-content > article.green > a::after {
+    background: linear-gradient(270deg, #4dcc3a 0%, var(--black) 100%);
+}
+
+body.light-theme > main > .s-skills {
+    background-color: var(--medium-white);
+    color: var(--medium-black);
+}
+
+body.light-theme > main > .s-skills > .skills > div.cards > article {
+    background-color: var(--white);
+    border: 1px solid var(--ligth-black);
+}
+
+body.light-theme > main > .s-skills > .skills > div.cards > article:not(:hover) > svg > path {
+    fill: var(--gray);
+}
+
+body.light-theme > main > .s-skills > .skills > div.cards > article:not(:hover) > svg > g {
+    fill: var(--gray);
+}
+
+body.light-theme > main > .s-comentarios > .comentarios > .comentarios-content > carousel > page > article {
+    background-color: var(--medium-white);
+    border: 1px solid var(--purple);
+}
+
+body.light-theme > main > .s-comentarios > .comentarios > .comentarios-content > carousel > page > article:hover > p {
+    color: var(--medium-black);
+}
+
+body.light-theme > footer {
+    background-color: var(--medium-white);
+}
+
+body.light-theme > footer > .footer > div > img {
+    content: url(images/logo_black.png);
+}
+
+body.light-theme::-webkit-scrollbar-track {
+    background: var(--ice-white); 
+}
+
+@media screen and (max-width: 992px) {
+    body.light-theme > header > .nav-div > nav > .nav-list {
+        background-color: var(--white);
+    }
+
+    body.light-theme > footer {
+        background-color: var(--white);
+    }
+
+    body.light-theme > main > section#s-perfil > .perfil > div > nav {
+        background-color: var(--medium-white);
+    }
+}
+
+/*#endregion*/
