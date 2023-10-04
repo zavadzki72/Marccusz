@@ -1,10 +1,80 @@
 $(document).ready(function () {
+    var l = initLang();
+    var actualLang = l.getLang();
+
+    onChangeLang(l);
     onScroll();
     onChangeTheme();
     onClickNavMenu();
-    onClickCompanyCarreer();
-    onHoverSkillCard();
+    onClickCompanyCarreer(actualLang);
+    onHoverSkillCard(actualLang);
 });
+
+//#region [Lang]
+function initLang(){
+    var l = new LanguageSelector();
+    l.parse();
+
+    var actualLang = l.getLang();
+    var langFlag = 'br';
+    var cvTitle = 'Visualizar CV';
+    var urlTitle = 'assets/files/cv_pt.pdf';
+
+    switch(actualLang){
+        case 'en':
+            langFlag = 'us';
+            cvTitle = 'View CV'
+            urlTitle = 'assets/files/cv_en.pdf';
+            break;
+        case 'pt':
+            langFlag = 'br';
+            cvTitle = 'Visualizar CV';
+            urlTitle = 'assets/files/cv_pt.pdf';
+            break;
+    }
+
+    $('.current_lang .lang-txt').text(actualLang);
+    $('.current_lang span.flag').attr('class', `fi fi-${langFlag}`);
+    $(`.more_lang .lang[data-value=${actualLang}]`).addClass('selected');
+
+    
+    $('#cv-btn').attr('title', cvTitle);
+    $('#cv-btn').attr('href', urlTitle);
+
+    return l;
+}
+
+function onChangeLang(l){
+    $(document).click( function(e) {
+        $('.translate_wrapper, .more_lang').removeClass('active');     
+    });
+   
+   $('.translate_wrapper .current_lang').click(function(e){    
+        e.stopPropagation();
+        $(this).parent().toggleClass('active');
+        
+        setTimeout(function(){
+            $('.more_lang').toggleClass('active');
+        }, 5);
+    });
+
+    $('.more_lang .lang').click(function(){
+        $(this).addClass('selected').siblings().removeClass('selected');
+        $('.more_lang').removeClass('active');  
+        
+        var flag = $(this).find('span.flag').attr('class');    
+        var lang = $(this).attr('data-value');
+        
+        l.setLang(lang);
+
+        $('.current_lang .lang-txt').text(lang);
+        $('.current_lang span.flag').attr('class', flag);
+
+        window.location = "index.html";
+      });
+}
+
+//#endregion
 
 //#region [Scroll Animation]
 
@@ -103,22 +173,31 @@ function onClickNavMenu(){
 
 //#region [Carreira]
 
-function onClickCompanyCarreer(){
+function onClickCompanyCarreer(lang){
     $('.company-carreer').on('click', function(event) {
         var id = event.target.id;
+        var cl = new CarrerrLanguage();
 
         switch(id){
             case 'ambev':
-                setCarrerr(id, 'Tech Lead', '09/2021 - Atual', 'Ambev Tech', 'Tech lead da equipe que cuida da aplicação de gerenciamento de insumos nas fabricas globais da ambev.');
+                var data = cl.getAmbev(lang);
+
+                setCarrerr(id, 'Tech Lead', data.date, 'Ambev Tech', data.description);
                 break;
             case 'pb':
-                setCarrerr(id, '.NET Developer', '03/2021 - 09/2021', 'Paraná Banco', 'Trabalhei como desenvolvedor .NET no PB, lá cuidavamos do produto que era responsável pelas ações dos usuarios (empréstimo, investimentos, etc).');
+                var data = cl.getPb(lang);
+
+                setCarrerr(id, '.NET Developer', data.date, 'Paraná Banco', data.description);
                 break;
             case 'bne':
-                setCarrerr(id, '.NET Developer', '06/2018 - 03/2021', 'Banco nacional de empregos', 'Trabalhei como desenvolvedor .NET no BNE, lá cuidavamos de vários produtos da empresa, principalmente sites de emprego e apps voltados a área de recursos humanos.');
+                var data = cl.getBne(lang);
+
+                setCarrerr(id, '.NET Developer', data.date, 'Banco nacional de empregos', data.description);
                 break;
             case 'tjpr':
-                setCarrerr(id, 'Estagiário de TI', '02/2018 - 06/2021', 'Tribunal de Justiça do Paraná', 'Trabalhei como desenvolvedor .NET no TJPR, lá eu era  Responsável pelo auxílio na parte de Informática, ajudando com a elaboração de planilhas no Excel, Inserção de alunos da escola no banco de dados, cadastramento de cursos e emissão de certificados para os servidores.');
+                var data = cl.getTj(lang);
+
+                setCarrerr(id, 'Estagiário de TI', data.date, 'Tribunal de Justiça do Paraná', data.description);
                 break;
             }
     });
@@ -138,10 +217,10 @@ function setCarrerr(name, title, date, companyName, description){
 
 //#region [Skills]
 
-function onHoverSkillCard(){
+function onHoverSkillCard(lang){
     $("#skill-cards > article").on({
         mouseenter: function (event) {
-            setSkillText(event.target.id);
+            setSkillText(event.target.id, lang);
         },
         mouseleave: function () {
             $('#skill-text').text('...');
@@ -149,50 +228,11 @@ function onHoverSkillCard(){
     });
 }
 
-function setSkillText(id){
+function setSkillText(id, lang){
     var element = $('#skill-text');
-
-    switch(id){
-        case 'c-sharp':
-            element.text('C# é uma linguagem de programação orientada a objetos e orientada a componentes. C# fornece construções de linguagem para dar suporte diretamente a esses conceitos, tornando C# uma linguagem natural para criação e uso de componentes de software.');
-            break;
-        case 'dot-net':
-            element.text('O .NET é uma plataforma de desenvolvedor de software livre, criada pela Microsoft, para criar muitos tipos diferentes de aplicativos.');
-            break;
-        case 'java-script':
-            element.text('JavaScript é uma linguagem de programação que permite a você implementar elementos dinâmicos em páginas web.');
-            break;
-        case 'sql-server':
-            element.text('O Microsoft SQL Server é um sistema gerenciador de Banco de dados relacional (SGBD) desenvolvido pela Sybase em parceria com a Microsoft.');
-            break;
-        case 'pg-sql':
-            element.text('PostgreSQL é um gerenciador de banco de dados relacionados que otimiza muito o trabalho de quem precisa administrar informações nesses níveis.');
-            break;
-        case 'mongo-db':
-            element.text('MongoDB é um banco de dados de documentos com a escalabilidade e flexibilidade que você deseja junto com a consulta e indexação que você precisa.');
-            break;
-        case 'azure':
-            element.text('Microsoft Azure, muitas vezes referido como Azure, é uma plataforma de computação em nuvem executada pela Microsoft, que oferece acesso, gerenciamento e desenvolvimento de aplicativos e serviços por meio de data centers globais. Ele fornece software como serviço (SaaS), plataforma como serviço (PaaS) e infraestrutura como serviço (IaaS) e suporta muitas linguagens de programação, ferramentas e frameworks diferentes, incluindo software e sistemas específicos da Microsoft e de terceiros.');
-            break;
-        case 'git':
-            element.text('O Git é um sistema de controle de revisão de código aberto maduro e mantido ativo usado por milhares de desenvolvedores em todo o mundo.');
-            break;
-        case 'html':
-            element.text('HTML é uma linguagem de marcação, onde marcamos os elementos para definir quais informações a página vai exibir.');
-            break;
-        case 'css':
-            element.text('CSS é uma linguagem de folha de estilo composta por “camadas”, criado com o propósito de estilizar as páginas.');
-            break;
-        case 'type-script':
-            element.text('TypeScript é um superset do JavaScript que incluir recursos que não estão presentes na linguagem de forma nativa, além de torná-la estática.');
-            break;
-        case 'redis':
-            element.text('Redis (Remote Dictionary Server, em português servidor de dicionário remoto) é um armazenamento de estrutura de dados em memória, usado como um banco de dados em memória distribuído de chave-valor, cache e agente de mensagens, com durabilidade opcional.');
-            break;
-        default:
-            element.text('...');
-            break;
-    }
+    var sl = new SkillLanguage();
+    
+    element.text(sl.getText(lang, id));
 }
 
 //#endregion
