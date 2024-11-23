@@ -16,6 +16,7 @@ function initLang(){
     l.parse();
 
     var actualLang = l.getLang();
+
     var langFlag = 'br';
     var cvTitle = 'Visualizar CV';
     var urlTitle = 'assets/files/cv_pt.pdf';
@@ -31,15 +32,22 @@ function initLang(){
             cvTitle = 'Visualizar CV';
             urlTitle = 'assets/files/cv_pt.pdf';
             break;
+        default:
+            langFlag = 'us';
+            cvTitle = 'View CV'
+            urlTitle = 'assets/files/cv_en.pdf';
+            actualLang = 'en'
+            break;
     }
 
     $('.current_lang .lang-txt').text(actualLang);
     $('.current_lang span.flag').attr('class', `fi fi-${langFlag}`);
     $(`.more_lang .lang[data-value=${actualLang}]`).addClass('selected');
-
     
     $('#cv-btn').attr('title', cvTitle);
     $('#cv-btn').attr('href', urlTitle);
+
+    l.setLang(actualLang);
 
     return l;
 }
