@@ -10,6 +10,7 @@
     --green: #A6FB98;
     --red: #E51D37;
     --blue: #00a3ff;
+    --yellow: #FEEC37;
 }
 
 * {
@@ -1104,6 +1105,10 @@ header {
     border: 1px solid var(--blue);
 }
 
+.portifolio-content > article.yellow {
+    border: 1px solid var(--yellow);
+}
+
 .portifolio-content > article.breve:hover
 .portifolio-content > article.breve:active {
     border: 1px solid var(--purple);
@@ -1171,6 +1176,15 @@ header {
 
 .portifolio-content > article.green > a::after {
     background: linear-gradient(270deg, var(--green) 0%, var(--black) 100%);
+}
+
+.portifolio-content > article.yellow > a {
+    color: var(--yellow);
+    opacity: .8;
+}
+
+.portifolio-content > article.yellow > a::after {
+    background: linear-gradient(270deg, var(--yellow) 0%, var(--black) 100%);
 }
 
 .portifolio > a {
