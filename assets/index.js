@@ -190,7 +190,7 @@ function onClickCompanyCarreer(lang){
             case 'ambev':
                 var data = cl.getAmbev(lang);
 
-                setCarrerr(id, 'Tech Lead', data.date, 'Ambev Tech', data.description);
+                setCarrerr(id, 'Software Architect', data.date, 'Ambev Tech', data.description);
                 break;
             case 'pb':
                 var data = cl.getPb(lang);

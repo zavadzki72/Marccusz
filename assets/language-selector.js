@@ -56,11 +56,11 @@ class CarrerrLanguage {
 		switch(lang){
 			case 'en':
 				date = '09/2021 - Now';
-				description = 'Tech lead of the team that works with the application of materials management in Brazilian factories.';
+				description = 'Responsible for defining and evolving the architecture of a strategic system focused on goal and KPI management across all Ambev factories. Operating in a high-scale environment with an emphasis on performance and efficiency in processing millions of data points. Technical leadership of the team, ensuring the adoption of software engineering best practices, architectural standards definition, code review, and support for developers technical growth. Close collaboration with stakeholders to align technical solutions with business objectives, with a strong focus on scalability, observability, and data governance.';
 			break;
 			case 'pt':
 				date = '09/2021 - Atual';
-				description = 'Tech lead da equipe que cuida da aplicação de gerenciamento de insumos nas fabricas globais da ambev.';
+				description = 'Responsável pela definição e evolução da arquitetura de um sistema estratégico voltado à gestão de metas e KPIs de todas as fábricas da Ambev. Atuação em um ambiente de alta escala, com foco em performance e eficiência no processamento de milhões de dados. Liderança técnica do time, garantindo a adoção de boas práticas de engenharia de software, definição de padrões arquiteturais, revisão de código e suporte à evolução técnica dos desenvolvedores. Colaboração próxima com stakeholders para alinhar soluções técnicas aos objetivos de negócio, com ênfase em escalabilidade, observabilidade e governança de dados.';
 			break;
 		}
 
