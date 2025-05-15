@@ -1109,6 +1109,10 @@ header {
     border: 1px solid var(--yellow);
 }
 
+.portifolio-content > article.purple {
+    border: 1px solid var(--purple);
+}
+
 .portifolio-content > article.breve:hover
 .portifolio-content > article.breve:active {
     border: 1px solid var(--purple);
@@ -1186,6 +1190,16 @@ header {
 .portifolio-content > article.yellow > a::after {
     background: linear-gradient(270deg, var(--yellow) 0%, var(--black) 100%);
 }
+
+.portifolio-content > article.purple > a {
+    color: var(--purple);
+    opacity: .8;
+}
+
+.portifolio-content > article.purple > a::after {
+    background: linear-gradient(270deg, var(--purple) 0%, var(--black) 100%);
+}
+
 
 .portifolio > a {
     color: var(--purple);
@@ -1370,6 +1384,10 @@ carousel > #page1-checkbox:checked ~ #page1 {
 }
 
 carousel > #page2-checkbox:checked ~ #page2 {
+    transform: scale(1);
+}
+
+carousel > #page3-checkbox:checked ~ #page3 {
     transform: scale(1);
 }
 
